@@ -8,7 +8,8 @@ function Home()
 
     return (
         <>
-            <h1>Wecolme to R.E.V.S ANTI-VIRUS SOFTWARE WARNING!</h1>
+            <h1> WELCOME TO</h1>
+            <h1>R.E.V.S ANTI-VIRUS SOFTWARE WARNING!</h1>
             <p>Please click on one of the buttons below to get started.</p>
             <button onClick={handleMargaret}>Margarete</button>
             <button onClick={handleBill}>Bill</button>
