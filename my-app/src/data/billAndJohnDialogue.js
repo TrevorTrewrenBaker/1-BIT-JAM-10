@@ -1,4 +1,4 @@
-const billAndJohn = 
+const billAndJohnDialogue = 
 [
     {name: "John", words: "Good Monday Morning, Bill! It's John James! I believe we met at the last software convention in Shoreside?"},
     {name: "Bill", words: "Umm... Hello John? I am having a hard time recalling you. I met a lot of people at the last convention. Could you remind me which company you work for?"},
