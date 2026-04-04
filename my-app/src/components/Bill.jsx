@@ -24,24 +24,24 @@ function Bill({setSolved, solved})
 
  return (
       <>
-        <h1 id="Title">Bill Challenge</h1>
+        <h1 id="Title">Bill's Challenge</h1>
 
-        <div id="CenterBoxStyle">
+        <div hidden={solved} id="CenterBoxStyle">
           <p>Solve the following riddle using your phone call with Bill for clues.</p>
           <p><i>My rectangular interior is dark and cold</i></p>
           <p><i>Secrets of yours, I will hold</i></p>
           <p><i>A simple code protects all</i></p>
           <p><i>What am I?</i></p>
-          <p>Enter Answer: <input type="text" onChange={handleTextChange}/></p>
+          <p hidden={solved}>Enter Answer: <input type="text" onChange={handleTextChange}/></p>
           <button onClick={handleSubmitButton}>Submit Result</button>
 
           {(!solved && solved !== null) && <p>Not quite right, try again.</p>}
-          {solved && 
-          <>
+          </div>
+
+        <div hidden={!solved} id="CenterBoxStyle">
             <p>Congratulations! You guessed the right word.</p>
             <p>Do you feel guilty for telling Bill the software was "safe" when you weren't sure yourself?</p>
-            <p>Do you think blackmailing him into buying the anti-virus made him feel safe?</p>
-          </>}
+            <p>Do you think blackmailing him into buying the anti-virus made him feel "safe"?</p>
         </div>
                
         <div id="LeftBoxStyle">

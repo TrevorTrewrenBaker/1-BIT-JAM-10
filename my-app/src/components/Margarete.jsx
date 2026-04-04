@@ -49,11 +49,11 @@ function Margarete({setSolved, solved})
 
  return (
       <>
-        <h1 id="Title">Margarete Challenge</h1>
+        <h1 id="Title">Margarete's Challenge</h1>
 
-        <div id="CenterBoxStyle">
-            <p>Use the buttons below to make them all match the mystery number from your phone call with Margarete.</p>
-            <p>Use the script from the phone call to get the correct number.</p>
+        <div hidden={solved} id="CenterBoxStyle">
+            <p >Use the buttons below to make them all match the mystery number from your phone call with Margarete.</p>
+            <p >Use the script from the phone call to get the correct number.</p>
 
             <p>{firstCounter} {secondCounter} {thirdCounter} </p>
 
@@ -67,8 +67,12 @@ function Margarete({setSolved, solved})
             <button onClick={handleSubmitButton}>Submit Result</button>
 
             {(!solved && solved !== null) && <p>Not quite right, try again.</p>}
-            {solved && <p>Congratulations! You solved the puzzle!</p>}
+        </div>
 
+        <div hidden={!solved} id="CenterBoxStyle">
+           <p>Congratulations! You got the correct number, 27!</p>
+           <p>That poor woman... All she wanted to do was protect the op shop.</p>
+           <p>You pushed that sale so hard. And for what? A single $27 sale...</p>
         </div>
 
         <div id="LeftBoxStyle">

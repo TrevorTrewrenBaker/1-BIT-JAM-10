@@ -1,7 +1,7 @@
 import Navigate from './Navigate';
 import { useNavigate } from 'react-router-dom';
 
-function Home({margaretSolved, billSolved})
+function Home({margaretSolved, billSolved, johnSolved})
 {
     const nav = useNavigate();
     const {handleMargaret, handleJohn, handleBill, handleTheChoice} = Navigate(nav); 
@@ -13,21 +13,29 @@ function Home({margaretSolved, billSolved})
             <p>Please click on one of the buttons below to get started.</p>
 
             <button onClick={handleMargaret}>
-                {margaretSolved && "✔ "} 
-                {!margaretSolved && "X "}
-                Margarete
+                {margaretSolved && "✔ Margarete"} {!margaretSolved && "X Margarete"} 
+            </button>
+
+            {
+                margaretSolved && 
+                <button onClick={handleBill}>
+                    {billSolved && "✔ Bill"} {!billSolved && "X Bill"}
                 </button>
+            }
 
-            <button onClick={handleBill}>
-                {billSolved && "✔ "} 
-                {!billSolved && "X "}
-                Bill
+            {
+                billSolved && 
+                <button onClick={handleJohn}>
+                    {johnSolved && "✔ John"} {!johnSolved && "X John"}
                 </button>
+            }            
 
-
-
-            <button onClick={handleJohn}>John</button>
-            {margaretSolved && <button onClick={handleTheChoice}>The Choice</button>}
+            {
+                johnSolved && 
+                <button onClick={handleTheChoice}>
+                    The Choice
+                </button>
+            }
         </>
     );
 }
