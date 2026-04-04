@@ -10,3 +10,5 @@ const billAndJohnDialogue =
     {name: "John", words: "What would your co-workers think if they knew you think they're expendable?"},
     {name: "Bill", words: "You were eavesdropping on me! I knew someone was listening... Fine. Lets make a deal..."},
 ]; 
+
+export default billAndJohnDialogue; 
