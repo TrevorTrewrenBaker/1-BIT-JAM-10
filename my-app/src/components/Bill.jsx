@@ -24,7 +24,7 @@ function Bill({setSolved, solved})
 
  return (
       <>
-        <h1 id="Title">Bill Challenge</h1>
+        <h1 id="Title">Bill's Challenge</h1>
 
         <div id="CenterBoxStyle">
           <p>Solve the following riddle using your phone call with Bill for clues.</p>

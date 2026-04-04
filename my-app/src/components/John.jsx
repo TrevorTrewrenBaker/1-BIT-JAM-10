@@ -8,7 +8,7 @@ function John()
 
  return (
       <>
-        <h1 id="Title">John</h1>
+        <h1 id="Title">John's Challenge</h1>
         <button onClick={handleHome}>Return to home</button>
       </>
  );
