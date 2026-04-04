@@ -17,3 +17,28 @@ button {
    color: #ffffff;
    border-radius: 15px;
 }
+
+#LeftBoxStyle {
+   gap: 10px; 
+   justify-self: left;
+   justify-content: left;
+   justify-items: left;
+   text-align: left;
+   border-style: solid;
+   white-space: normal;
+   border-color: #ffffff;
+   border-radius: 15px;
+   margin: 15px; 
+}
+
+#CenterBoxStyle {
+   gap: 10px; 
+   justify-self: center;
+   justify-content: center;
+   justify-items: center;
+   border-style: solid;
+   white-space: normal;
+   border-color: #ffffff;
+   border-radius: 15px;
+   margin: 15px; 
+}

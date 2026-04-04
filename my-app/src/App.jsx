@@ -9,12 +9,15 @@ import Bill from './components/Bill';
 import TheChoice from './components/TheChoice'
 
 function App() {
+
+  const [magaretSolved, setMargaretSolved] = useState(null); 
+
  return (
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<Start/>}/>
-      <Route path="/home" element={<Home/>}/>
-      <Route path="/margaret" element={<Margarete/>}/>
+      <Route path="/home" element={<Home margaretSolved={magaretSolved}/>}/>
+      <Route path="/margaret" element={<Margarete setSolved={setMargaretSolved} solved={magaretSolved}/>}/>
       <Route path="/john" element={<John/>}/>
       <Route path="/bill" element={<Bill/>}/> 
       <Route path="/theChoice" element={<TheChoice/>}/>
