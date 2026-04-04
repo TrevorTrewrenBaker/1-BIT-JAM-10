@@ -11,15 +11,16 @@ import TheChoice from './components/TheChoice'
 function App() {
 
   const [magaretSolved, setMargaretSolved] = useState(null); 
+  const [billSolved, setBillSolved] = useState(null); 
 
  return (
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<Start/>}/>
-      <Route path="/home" element={<Home margaretSolved={magaretSolved}/>}/>
+      <Route path="/home" element={<Home margaretSolved={magaretSolved} billSolved={billSolved}/>}/>
       <Route path="/margaret" element={<Margarete setSolved={setMargaretSolved} solved={magaretSolved}/>}/>
+      <Route path="/bill" element={<Bill setSolved={setBillSolved} solved={billSolved}/>}/> 
       <Route path="/john" element={<John/>}/>
-      <Route path="/bill" element={<Bill/>}/> 
       <Route path="/theChoice" element={<TheChoice/>}/>
     </Routes>
   </BrowserRouter>
