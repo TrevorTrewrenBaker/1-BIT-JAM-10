@@ -10,7 +10,7 @@ import TheChoice from './components/TheChoice'
 
 function App() {
 
-  const [magaretSolved, setMargaretSolved] = useState(false); 
+  const [magaretSolved, setMargaretSolved] = useState(null); 
 
  return (
   <BrowserRouter>

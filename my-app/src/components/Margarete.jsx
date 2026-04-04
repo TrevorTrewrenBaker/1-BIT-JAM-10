@@ -1,6 +1,6 @@
 import Navigate from './Navigate';
 import { useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react'; 
+import { useState } from 'react'; 
 import ProcessDialogue from './ProcessDialogue';
 import margareteAndJohnDialogue from '../data/margareteAndJohnDialogue'
 
@@ -43,7 +43,6 @@ function Margarete({setSolved, solved})
 
   const handleSubmitButton = () => {
     setSolved(a => a = firstCounter == 27 && secondCounter == 27 && thirdCounter == 27);
-     
   };
 
   const dialogue = ProcessDialogue(margareteAndJohnDialogue); 
@@ -66,6 +65,9 @@ function Margarete({setSolved, solved})
             </p>
 
             <button onClick={handleSubmitButton}>Submit Result</button>
+
+            {(!solved && solved !== null) && <p>Not quite right, try again.</p>}
+            {solved && <p>Congratulations! You solved the puzzle!</p>}
 
         </div>
 
