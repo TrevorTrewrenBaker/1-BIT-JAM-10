@@ -11,11 +11,22 @@ p {
 
 button {
    font-size: x-large;
-   margin: 15px;
+   margin: 5px;
    border-color: #ffffff;
    background-color: #000000;
    color: #ffffff;
    border-radius: 15px;
+}
+
+input {
+   border-radius: 5px;
+   padding: 5px;
+   justify-self: top;
+   font-size: x-large;
+   margin: 5px;
+   border-color: #ffffff;
+   background-color: #000000;
+   color: #ffffff;
 }
 
 #LeftBoxStyle {

@@ -1,8 +1,7 @@
 import Navigate from './Navigate';
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
 
-function Home({margaretSolved})
+function Home({margaretSolved, billSolved})
 {
     const nav = useNavigate();
     const {handleMargaret, handleJohn, handleBill, handleTheChoice} = Navigate(nav); 
@@ -19,7 +18,14 @@ function Home({margaretSolved})
                 Margarete
                 </button>
 
-            <button onClick={handleBill}>Bill</button>
+            <button onClick={handleBill}>
+                {billSolved && "✔ "} 
+                {!billSolved && "X "}
+                Bill
+                </button>
+
+
+
             <button onClick={handleJohn}>John</button>
             {margaretSolved && <button onClick={handleTheChoice}>The Choice</button>}
         </>
