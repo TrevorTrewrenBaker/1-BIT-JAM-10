@@ -48,7 +48,6 @@ function TheChoice()
            <p>Time to discuss a raise.</p>
         </div>
 
-
         <button onClick={handleHome}>Return to home</button>
       </>
  );
