@@ -7,17 +7,7 @@ function John({setSolved, solved})
   const nav = useNavigate();
   const {handleHome} = Navigate(nav); 
 
-  // const [option1, setOption1] = useState(""); 
-  // const [option2, setOption2] = useState(""); 
-  // const [option3, setOption3] = useState(""); 
-  // const [option4, setOption4] = useState(""); 
-  // const [option5, setOption5] = useState(""); 
-
-  // const optionList1 = ["John", "Bill", "Margarete"];
-  // const optionList2 = ["$6.75", "4 months", "$27"];
-  // const optionList3 = ["assistant manager", "boss", "op shop", "software company"];
-  // const optionList4 = ["Eavesdropping", "Expert", "Expendable"];
-  // const optionList5 = ["safe", "secure", "software", "special", "Shoreside"];
+  const defaultValue = "default"; 
 
   const optionLists = [
     ["John", "Bill", "Margarete"],
@@ -29,12 +19,12 @@ function John({setSolved, solved})
 
   const [selectedOptions, setSelectedOptions] = useState(new Array(5).fill(null));
 
-  const answerList = new Array(5).fill({hidden: true, answer: ""}); 
-  const roundCounter = 0; 
-  const timeoutValue = 1000;
+  const [answerList, setAnswerList] = useState(new Array(5).fill("")); 
+
+  const [answersHidden, setAnswersHidden] = useState(true); 
 
   const makeOptionList = (arr) => {
-    return arr.map((o) => <option id={useId()}>{o}</option>);
+    return arr.map((o) => <option disabled={!answersHidden} id={useId()}>{o}</option>);
   }
 
   const SelectOption = (i, e) => {
@@ -46,9 +36,33 @@ function John({setSolved, solved})
     setSelectedOptions(arr => arr = newArray);
   }
 
-  const startButtonPressed = () => { }
+  const startButtonPressed = async () => 
+  { 
+    //Clear all selected choices.
+    setSelectedOptions(new Array(5).fill(defaultValue));
 
+    //Assign choices
+    const tempAnswerList = structuredClone(answerList);
 
+    for (let i = 0; i < optionLists.length; i++)
+    {
+       const list = optionLists[i];
+       const randomVal = Math.floor(Math.random() * list.length); 
+       tempAnswerList[i] = list[randomVal];
+    }
+    
+    setAnswersHidden(false); 
+    setAnswerList(prevArr => prevArr = tempAnswerList); 
+    await sleep(2000); 
+    setAnswersHidden(true); 
+  }
+
+  const submitButtonPressed = () => 
+  {
+     setSolved(a => JSON.stringify(answerList) === JSON.stringify(selectedOptions))
+  };
+
+  const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
   function CreateDropdownContainers()
   {
@@ -60,10 +74,10 @@ function John({setSolved, solved})
     { 
        elements.push(
         <div id="DropdownContainer">
-           <p hidden={answerList[i].hidden}>{answerList[i].answer}</p>
+           <p hidden={answersHidden}>{answerList[i]}</p>
            <p>Option {i+1}</p>
-           <select defaultValue="0" onChange={(e) => SelectOption(i, e)}>
-            <option value="0" disabled id={useId()}>Pick an option</option>
+           <select defaultValue={defaultValue} value={selectedOptions[i]} onChange={(e) => SelectOption(i, e)}>
+              <option value={defaultValue} disabled id={useId()}>Pick an option</option>
               {makeOptionList(optionLists[i])}
             </select>
         </div>
@@ -76,7 +90,6 @@ function John({setSolved, solved})
       </div>
     );
   }
-
   
  return (
       <>
@@ -85,15 +98,22 @@ function John({setSolved, solved})
         <div hidden={solved} id="CenterBoxStyle">
             <p>You like to play games, don't you John?</p>
             <p>Let's see if you can finish my pattern matching quiz.</p>
-            <p>You need to match the words in order of their appearance...</p>
+            <p>You need to match the words that flash on the screen</p>
 
-            <button onClick={startButtonPressed}>Start</button>
+            <button onClick={startButtonPressed}>Show Answers</button>
 
             {CreateDropdownContainers()}
+
+            <button onClick={submitButtonPressed}>Submit Answers</button>
         </div>
 
-        
+        {(!solved && solved !== null) && <p>Not quite right, try again.</p>}
 
+        <div hidden={!solved} id="CenterBoxStyle">
+            <p>Congratulations! You got the items correct.</p>
+            <p>Now you can go find out what is truely hidning in that software.</p>
+            <p>What's hiding in there?</p>
+        </div>
 
         <button onClick={handleHome}>Return to home</button>
       </>
