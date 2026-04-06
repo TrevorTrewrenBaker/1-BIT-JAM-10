@@ -23,7 +23,8 @@ function Start()
       </p>
       <p>
         Once you get to the end of this trial, you will have a choice to make. I hope what 
-        you learn from this trial will help you make the correct decision. 
+        you learn from this trial will help you make the correct decision. What is in that software?
+        WHAT'S HIDING IN THERE? 
       </p>
       <button onClick={handleHome}>START THE TRIAL</button>
       </>
